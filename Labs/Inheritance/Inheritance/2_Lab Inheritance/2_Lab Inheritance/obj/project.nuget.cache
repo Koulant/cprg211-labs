@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "dgSpecHash": "7adNmPS1d4T8bUsy7JXW/kVV8z/uBLN8ZGt+rJgmMmjw+3u99o9/iVN7MeNpjCyG8/zRciBQ8Clv2i4mFvheqA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Anton\\OneDrive - Southern Alberta Institute of Technology\\Desktop\\Object Oriented Programming 2\\Labs\\Inheritance\\Lab Inheritance Solution\\2_Lab Inheritance\\2_Lab Inheritance\\2_Lab Inheritance.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Anton\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\Anton\\.nuget\\packages\\netstandard.library\\2.0.0\\netstandard.library.2.0.0.nupkg.sha512",
+    "C:\\Users\\Anton\\.nuget\\packages\\nunit\\3.13.3\\nunit.3.13.3.nupkg.sha512",
+    "C:\\Users\\Anton\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\5.0.0\\microsoft.windowsdesktop.app.ref.5.0.0.nupkg.sha512",
+    "C:\\Users\\Anton\\.nuget\\packages\\microsoft.netcore.app.ref\\5.0.0\\microsoft.netcore.app.ref.5.0.0.nupkg.sha512",
+    "C:\\Users\\Anton\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\5.0.0\\microsoft.aspnetcore.app.ref.5.0.0.nupkg.sha512",
+    "C:\\Users\\Anton\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.17\\microsoft.netcore.app.host.win-x64.5.0.17.nupkg.sha512"
+  ],
+  "logs": []
+}

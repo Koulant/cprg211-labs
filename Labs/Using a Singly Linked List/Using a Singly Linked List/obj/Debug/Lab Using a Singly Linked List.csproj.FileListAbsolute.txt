@@ -1,0 +1,3 @@
+C:\Users\Anton\source\repos\Lab Using a Singly Linked List\obj\Debug\Lab Using a Singly Linked List.csproj.AssemblyReference.cache
+C:\Users\Anton\source\repos\Lab Using a Singly Linked List\obj\Debug\Lab Using a Singly Linked List.csproj.SuggestedBindingRedirects.cache
+C:\Users\Anton\source\repos\Lab Using a Singly Linked List\obj\Debug\Lab Using a Singly Linked List.csproj.CoreCompileInputs.cache

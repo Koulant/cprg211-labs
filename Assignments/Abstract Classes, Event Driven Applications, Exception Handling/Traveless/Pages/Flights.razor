@@ -1,0 +1,279 @@
+﻿@page "/flights"
+@using Traveless.Data
+
+<!--New Front End-->
+<head>
+    <style>
+
+        h3 {
+            text-align: center;
+            margin-top: 16px;
+        }
+
+        select {
+            width: 100%;
+            padding: 8px 8px;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type=text]{
+            width: 100%;
+            padding: 6px 8px;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            background-color: dodgerblue;
+            color: white;
+            padding: 6px 0px;
+            margin: 24px 0px;
+            border: none;
+            border-radius: 4px;
+        }
+
+        button:hover {
+            background-color: #389dff;
+        }
+
+        .row{
+            display: flex;
+            flex-direction: row;
+        }
+
+        .row > div {
+            width: 25%;
+        }
+
+        .row1 {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+        }
+
+        row2 > button {
+            width: 25%;
+        }
+
+        p {
+            text-align: center;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <h3>Flight Finder</h3>
+
+    <div class="row">
+        <div class="c">
+            <label>From:</label><br>
+            <select @onchange="FillFrom">
+                <!-- <option value="@selectedFrom">@selectedFrom</option>-->
+                @foreach(string airport in airports)
+                {
+                    <option value="@airport">@airport</option>
+                }
+            </select>
+        </div>
+        <div class="c1">
+            <label>To:</label><br>
+            <select @onchange="FillTo">
+                <!-- <option value="@selectedTo">@selectedTo</option> -->
+                @foreach (string airport in airports)
+                {
+                    <option value="@airport">@airport</option>
+                }
+            </select>
+        </div>
+        <div class="c2">
+            <label>Day:</label><br>
+            <select @onchange="FillDay">
+                <!-- <option value="@selectedDay">@selectedDay</option> -->
+                @foreach (string day in weekdays)
+                {
+                        <option value="@day">@day</option>
+                }        
+            </select>
+        </div>
+        <div class="c3">
+            <button @onclick="FindFlights">Find flights</button>
+        </div>
+    </div>
+
+    <h3>Flights</h3>
+
+    <div class="row1">
+        <select @onchange="FillFlightsForm">
+            <option>@loadingMessage</option>
+            @foreach (Flight flight in foundFlights) //foundFlights or listOfFlightsB is best?
+            {
+                <option value="@flight.ToString()">@flight.ToString()</option>
+            }
+        </select>
+    </div>
+
+    <h3>Reserve</h3>
+
+    <div class="row2">
+        <div>
+            <label>Flight code:</label><br>
+            <input type="text" id="flightCode" name="flightCode" placeholder="Flight" value="@selectedFlightCode" readonly><br>
+        </div>
+        <div>
+            <label>Airline:</label><br>
+            <input type="text" id="airline" name="airline" placeholder="Airline" value="@selectedAirline" readonly><br>
+        </div>
+        <div>
+            <label>Day:</label><br>
+            <input type="text" id="day" name="day" placeholder="Day" value="@selectedDay" readonly><br>
+        </div>
+        <div>
+            <label>Time:</label><br>
+            <input type="text" id="time" name="time" placeholder="Time" value="@selectedTime" readonly><br>
+        </div>
+        <div>
+            <label>Cost:</label><br>
+            <input type="text" id="cost" name="cost" placeholder="0" value="@selectedCost" readonly><br>
+        </div>
+        <div>
+            <label>Name:</label><br>
+            <input type="text" id="name" name="name" placeholder="Name" value="@selectedName"><br>
+        </div>
+        <div>
+            <label>Citizenship:</label><br>
+            <input type="text" id="citizenship" name="citizenship" placeholder="Citizenship" value="@selectedCitizenship"><br>
+        </div>
+        <div>
+            <button @onclick="FillReservationCode">Reserve</button>
+        </div>
+        <div>
+            <p>Reservation Code: @reservationCode</p>
+        </div>
+    </div>
+
+</body>
+
+@code {
+    //List of all airports
+    List<string> airports = new List<string>() { "Any", "YYC", "YEG", "YUL", "YOW", "YYZ", "YVR", "YWG", "ATL", "PEK", "DXB", "HKG", "LHR", "ORD", "PVG", "CDG", "AMS", "DEL", "FRA", "DFW" };
+
+    //List of all weekdays
+    List<string> weekdays = new List<string>() { "Any", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" };
+
+    List<Flight> listOfFlightsB = FlightManager.GetFlights();
+
+    public string loadingMessage = "Loading..."; //loading message for flight list dropdown
+
+    //Autopopulating form based on selected flight from listOfFlightsB
+    public string selectedFlightCode;
+    public string selectedAirline;
+    //public string selectedDay;
+    public string selectedTime;
+    public string selectedCost;
+    public string selectedName = String.Empty;
+    public string selectedCitizenship = String.Empty;
+
+    //Below required for FindFlights method?
+    string selectedFrom= "Any";
+    string selectedTo= "Any";
+    string selectedDay = "Any";
+
+    private void FillFrom(ChangeEventArgs e)
+    {
+        selectedFrom = e.Value.ToString();
+    }
+
+    private void FillTo(ChangeEventArgs e)
+    {
+        selectedTo = e.Value.ToString();
+    }
+
+    private void FillDay(ChangeEventArgs e)
+    {
+        selectedDay = e.Value.ToString();
+    }
+
+    private void FillFlightCode(ChangeEventArgs e)
+    {
+        selectedFlightCode = e.Value.ToString();
+    }
+
+    private void FillAirline(ChangeEventArgs e)
+    {
+        selectedAirline = e.Value.ToString();
+    }
+
+    private void FillTime(ChangeEventArgs e)
+    {
+        selectedTime = e.Value.ToString();
+    }
+
+    private void FillCost(ChangeEventArgs e)
+    {
+        selectedCost = e.Value.ToString();
+    }
+
+
+    //Function to fill the form
+    public void FillFlightsForm(ChangeEventArgs e)
+    {
+        FlightManager flightManager = new FlightManager(); //Will populate flights list when called
+
+        string selectedFlight = e.Value.ToString();
+        string[] flightField = selectedFlight.Split(", ");
+
+        selectedFlightCode = flightField[0];
+        selectedAirline = flightField[1];
+        selectedDay = flightField[4];
+        selectedTime = flightField[5];
+        selectedCost = flightField[7];
+    }
+
+    List<Flight> foundFlights = new List<Flight>();
+
+    private void FindFlights()
+    {
+        loadingMessage = "Select a flight from the list"; //Should take place of "Loading..." after button is pressed!
+
+        FlightManager flightManager = new FlightManager(); //Will populate flights list when called
+                                                           //FlightManager.GetFlights();
+        foundFlights.Clear(); //Clear list of found flights
+        foreach (Flight flight in listOfFlightsB)  
+        {
+
+            if (selectedFrom == flight.From && selectedTo == flight.To && selectedDay == flight.Day)
+            {
+                foundFlights.Clear();
+                foundFlights.Add(flight);
+            }
+            else if (selectedFrom == "Any" && selectedTo == "Any" && selectedDay == "Any")
+            {
+                foundFlights.Add(flight);
+            }
+        }
+    }
+
+    string reservationCode;
+    string name;
+    string citizenship;
+
+    public void FillReservationCode()
+    {
+        Random rand = new Random();
+        char reservationCodeLetter = (char)rand.Next('A', 'Z' + 1); // generates a random uppercase letter
+        int reservationCodeNumber = rand.Next(1000, 10000);
+        reservationCode = $"{reservationCodeLetter}{reservationCodeNumber}";
+
+        //assign the reservation code to a name and citizenship???
+        name = reservationCode;
+        citizenship = reservationCode;
+    }
+}

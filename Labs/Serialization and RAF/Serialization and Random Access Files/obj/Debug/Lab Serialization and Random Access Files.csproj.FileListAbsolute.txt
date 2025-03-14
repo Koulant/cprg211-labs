@@ -1,0 +1,8 @@
+C:\Users\Anton\source\repos\Lab Serialization and Random Access Files\bin\Debug\Lab Serialization and Random Access Files.exe.config
+C:\Users\Anton\source\repos\Lab Serialization and Random Access Files\bin\Debug\Lab Serialization and Random Access Files.exe
+C:\Users\Anton\source\repos\Lab Serialization and Random Access Files\bin\Debug\Lab Serialization and Random Access Files.pdb
+C:\Users\Anton\source\repos\Lab Serialization and Random Access Files\obj\Debug\Lab Serialization and Random Access Files.csproj.AssemblyReference.cache
+C:\Users\Anton\source\repos\Lab Serialization and Random Access Files\obj\Debug\Lab Serialization and Random Access Files.csproj.SuggestedBindingRedirects.cache
+C:\Users\Anton\source\repos\Lab Serialization and Random Access Files\obj\Debug\Lab Serialization and Random Access Files.csproj.CoreCompileInputs.cache
+C:\Users\Anton\source\repos\Lab Serialization and Random Access Files\obj\Debug\Lab Serialization and Random Access Files.exe
+C:\Users\Anton\source\repos\Lab Serialization and Random Access Files\obj\Debug\Lab Serialization and Random Access Files.pdb

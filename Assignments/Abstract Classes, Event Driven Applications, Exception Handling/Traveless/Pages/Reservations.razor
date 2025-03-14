@@ -1,0 +1,138 @@
+﻿@page "/reservations"
+@using Traveless.Data
+
+<!--New Front End-->
+<head>
+    <style>
+
+        h3 {
+            text-align: center;
+            margin-top: 16px;
+        }
+
+        select {
+            width: 100%;
+            padding: 8px 8px;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type=text] {
+            width: 100%;
+            padding: 6px 8px;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            background-color: dodgerblue;
+            color: white;
+            padding: 6px 0px;
+            margin: 24px 0px;
+            border: none;
+            border-radius: 4px;
+        }
+
+        button:hover {
+            background-color: #389dff;
+        }
+
+        .row {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .row > div {
+            width: 25%;
+        }
+
+        .row1 {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <h3>Reservation Finder</h3>
+
+    <div class="row">
+        <div class="c">
+            <label>Reservation code:</label><br>
+            <input type="text" id="reservationCode" name="reservationCode" placeholder="LDDD"><br>
+        </div>
+        <div class="c1">
+            <label>Airline:</label><br>
+            <input type="text" id="airline" name="airline" placeholder="Airline"><br>
+        </div>
+        <div class="c2">
+            <label>Name:</label><br>
+            <input type="text" id="name" name="name" placeholder="Name"><br>
+        </div>
+        <div class="c3">
+            <button>Find reservations</button>
+        </div>
+    </div>
+
+    <h3>Reservations</h3>
+
+    <div class="row1">
+        <select>
+            <option>Loading...</option>
+            <!-- @foreach (var flight in flights)
+            {
+                <option value="@flight.FlightCode">@flight.FlightCode, @flight.Airline, @flight.From, @flight.To, @flight.Day, @flight.Time, @flight.Seats, @flight.Cost</option>
+            } -->
+        </select>
+    </div>
+
+    <h3>Reserve</h3>
+
+    <div class="row2">
+        <div>
+            <label>Reservation code:</label><br>
+            <input type="text" id="reservationCode" name="reservationCode" placeholder="LDDD"><br>
+        </div>
+        <div>
+            <label>Flight code:</label><br>
+            <input type="text" id="flightCode" name="flightCode" placeholder="LL-DDDD"><br>
+        </div>
+        <div>
+            <label>Airline:</label><br>
+            <input type="text" id="airline" name="airline" placeholder="Airline"><br>
+        </div>
+        <div>
+            <label>Cost:</label><br>
+            <input type="text" id="cost" name="cost" placeholder="0"><br>
+        </div>
+        <div>
+            <label>Name:</label><br>
+            <input type="text" id="name" name="name" placeholder="Name"><br> <!--Appears to not be a placeholder?-->
+        </div>
+        <div>
+            <label>Citizenship:</label><br>
+            <input type="text" id="citizenship" name="citizenship" placeholder="Citizenship"><br>
+        </div>
+        <div>
+            <label>Status:</label><br>
+            <input type="text" id="status" name="status" placeholder="Active"><br> <!--Appears to not be a placeholder?-->
+        </div>
+        <div>
+            <button>Save</button>
+        </div>
+    </div>
+
+</body>
+
+
+@code {
+
+}
